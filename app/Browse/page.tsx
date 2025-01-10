@@ -105,7 +105,7 @@ const Page = () => {
 
 
 
-  const handleProductClick = (product) => {
+  const handleProductClick = (product:any) => {
     setSelectedProduct(product);
   };
 
