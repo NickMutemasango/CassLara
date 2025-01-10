@@ -10,8 +10,17 @@ import Geysar from "../../public/images/Browse/geysar.svg";
 import Tank from "../../public/images/Browse/tank.svg";
 import { motion } from "framer-motion";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { HiCheck } from "react-icons/hi2";
+
+interface Product {
+  id: number;
+  image: StaticImageData;
+  description: string;
+  price: number;
+  category: string;
+  colors: string[];
+}
 
 const Page = () => {
  
@@ -23,7 +32,7 @@ const Page = () => {
   const [selectedSize, setSelectedSize] = useState("Large");
   const sizes = ["Small", "Medium", "Large", "X-Large"];
 
-  const colors = ["black", "lightyellow", "green"]; // Define the available colors
+  const colors = ["black", "yellow", "green"]; // Define the available colors
   const [selectedColor, setSelectedColor] = useState(null);
 
   const productData = [
@@ -105,7 +114,7 @@ const Page = () => {
 
 
 
-  const handleProductClick = (product:any) => {
+  const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
   };
 
@@ -220,7 +229,7 @@ const Page = () => {
                 className="cursor-pointer w-[50%] lg:w-[30%] "
               >
                 <Products
-                  image={product.image}
+                  img={product.image}
                   description={product.description}
                   price={product.price}
                 />
