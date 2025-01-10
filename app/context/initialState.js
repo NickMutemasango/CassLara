@@ -12,8 +12,8 @@
 
 // initialState.js
 
-export const initialState = {
-  cart: [], // initially empty cart
-  totalItems: 0,
-  totalPrice: 0,
-};
+// export const initialState = {
+//   cart: [], // initially empty cart
+//   totalItems: 0,
+//   totalPrice: 0,
+// };

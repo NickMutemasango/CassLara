@@ -42,66 +42,66 @@
 
 // reducer.js
 
-export const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TO_CART":
-      // Find the product already in the cart
-      const existingItemIndex = state.cart.findIndex(item => item.id === action.item.id);
+// export const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "ADD_TO_CART":
+//       // Find the product already in the cart
+//       const existingItemIndex = state.cart.findIndex(item => item.id === action.item.id);
       
-      if (existingItemIndex >= 0) {
-        // If item already exists in the cart, update the quantity and total price
-        const updatedCart = state.cart.map((item, index) =>
-          index === existingItemIndex
-            ? { ...item, quantity: item.quantity + 1, totalPrice: item.price * (item.quantity + 1) }
-            : item
-        );
-        const updatedTotalItems = updatedCart.reduce((acc, item) => acc + item.quantity, 0);
-        const updatedTotalPrice = updatedCart.reduce((acc, item) => acc + item.totalPrice, 0);
+//       if (existingItemIndex >= 0) {
+//         // If item already exists in the cart, update the quantity and total price
+//         const updatedCart = state.cart.map((item, index) =>
+//           index === existingItemIndex
+//             ? { ...item, quantity: item.quantity + 1, totalPrice: item.price * (item.quantity + 1) }
+//             : item
+//         );
+//         const updatedTotalItems = updatedCart.reduce((acc, item) => acc + item.quantity, 0);
+//         const updatedTotalPrice = updatedCart.reduce((acc, item) => acc + item.totalPrice, 0);
 
-        return {
-          ...state,
-          cart: updatedCart,
-          totalItems: updatedTotalItems,
-          totalPrice: updatedTotalPrice,
-        };
-      } else {
-        // If item is not already in the cart, add it
-        const updatedCart = [...state.cart, { ...action.item, quantity: 1, totalPrice: action.item.price }];
-        const updatedTotalItems = updatedCart.reduce((acc, item) => acc + item.quantity, 0);
-        const updatedTotalPrice = updatedCart.reduce((acc, item) => acc + item.totalPrice, 0);
+//         return {
+//           ...state,
+//           cart: updatedCart,
+//           totalItems: updatedTotalItems,
+//           totalPrice: updatedTotalPrice,
+//         };
+//       } else {
+//         // If item is not already in the cart, add it
+//         const updatedCart = [...state.cart, { ...action.item, quantity: 1, totalPrice: action.item.price }];
+//         const updatedTotalItems = updatedCart.reduce((acc, item) => acc + item.quantity, 0);
+//         const updatedTotalPrice = updatedCart.reduce((acc, item) => acc + item.totalPrice, 0);
 
-        return {
-          ...state,
-          cart: updatedCart,
-          totalItems: updatedTotalItems,
-          totalPrice: updatedTotalPrice,
-        };
-      }
+//         return {
+//           ...state,
+//           cart: updatedCart,
+//           totalItems: updatedTotalItems,
+//           totalPrice: updatedTotalPrice,
+//         };
+//       }
 
-    case "REMOVE_FROM_CART":
-      const filteredCart = state.cart.filter(item => item.id !== action.item.id);
-      const newTotalItems = filteredCart.reduce((acc, item) => acc + item.quantity, 0);
-      const newTotalPrice = filteredCart.reduce((acc, item) => acc + item.totalPrice, 0);
+//     case "REMOVE_FROM_CART":
+//       const filteredCart = state.cart.filter(item => item.id !== action.item.id);
+//       const newTotalItems = filteredCart.reduce((acc, item) => acc + item.quantity, 0);
+//       const newTotalPrice = filteredCart.reduce((acc, item) => acc + item.totalPrice, 0);
       
-      return {
-        ...state,
-        cart: filteredCart,
-        totalItems: newTotalItems,
-        totalPrice: newTotalPrice,
-      };
+//       return {
+//         ...state,
+//         cart: filteredCart,
+//         totalItems: newTotalItems,
+//         totalPrice: newTotalPrice,
+//       };
 
-    case "CLEAR_CART":
-      return {
-        ...state,
-        cart: [],
-        totalItems: 0,
-        totalPrice: 0,
-      };
+//     case "CLEAR_CART":
+//       return {
+//         ...state,
+//         cart: [],
+//         totalItems: 0,
+//         totalPrice: 0,
+//       };
 
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
 
-// cartProvider.js (or wherever you manage your cart state)
+// // cartProvider.js (or wherever you manage your cart state)
 

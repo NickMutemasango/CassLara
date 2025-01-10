@@ -14,7 +14,7 @@ import Image from "next/image";
 import { HiCheck } from "react-icons/hi2";
 
 const Page = () => {
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+ 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortType, setSortType] = useState("default");
   const [selectedProduct, setSelectedProduct] = useState(null);
